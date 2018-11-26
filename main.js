@@ -22,7 +22,7 @@ var chooseWinner = function(player, cpu) {
   if (order[player] === order[cpu]) {
     return 'Tie! Try again?';
   }
-  if (order[player] === order[cpu+1]) {
+  if (order[player] === order[cpu-1]) {
     score++;
     return 'You won!';
 
@@ -40,6 +40,8 @@ var assignClick = function (tag,pos) {
   tag.addEventListener ('click', function (){
     playerChoice = pos;
     cpuChoice. init();
+    
+    //Inca un rand in care sa zica 'You chose: ' + playerChoice; da nu merge nu stiu cum plm sa pun
     paragraph.innerText = 'The computer chose:' + cpuChoice.text;
     paragraph.innerText += '\n' + chooseWinner(playerChoice, cpuChoice.store);
     paragraph.innerText += '\n' + 'SCORE: ' + score;
